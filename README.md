@@ -37,7 +37,7 @@ Todas informações devem ser salvas em um banco de dados.
 
 ### Diferenciais
 
-- Boa documentação;
+- Boa documentação (como rodar o projeto, como foi organizado...);
 - Uso de pré-processadores CSS ([Sass](http://sass-lang.com), [Less](http://lesscss.org), [Stylus](http://stylus-lang.com));
 - Adaptar a página para dispositivos móveis (torná-la responsiva);
 - Utilizar alguma automatização ([Grunt](http://gruntjs.com), [Gulp](http://gulpjs.com), [NPM Scripts](https://docs.npmjs.com/misc/scripts))
