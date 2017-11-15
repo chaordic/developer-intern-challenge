@@ -1,0 +1,29 @@
+.text-white {
+  color: white;
+}
+
+.shortener {
+  height: auto;
+  min-height: 450px;
+  display: block;
+  position: relative;
+}
+
+.background-img {
+  background-image: url('../../assets/images/background-home.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+}
+
+.content {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}

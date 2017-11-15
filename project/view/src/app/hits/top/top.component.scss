@@ -1,0 +1,33 @@
+.top-5 {
+  width: 60%;
+}
+
+.url {
+  text-align: left;
+}
+
+.hits {
+  text-align: right;
+  margin-left: 15px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .top-5 {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .top-5 {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .top-5 {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+

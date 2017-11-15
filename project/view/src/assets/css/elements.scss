@@ -1,0 +1,75 @@
+$input-height: 30px;
+
+body {
+  text-align: center;
+  font-family: 'Roboto';
+  margin: 0px;
+  padding: 0px;
+  align-content: center;
+}
+
+header {
+  height: 45px;
+  vertical-align:middle;
+  display:table-cell;
+}
+
+footer {
+  height: 45px;
+  vertical-align:middle;
+  line-height: 45px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: auto;
+  font-family: 'Roboto Slab';
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: $red;
+  text-decoration: none;
+}
+
+hr {
+  @include linear_gradient(left, to right, $grey2, $grey1, $grey2);
+  border: none;
+  height: 1px;
+}
+
+input {
+  border: none;
+  color: $orange1;
+  border-bottom: 3px solid $orange1;
+  width: 350px;
+  height: $input-height;
+  background-color: transparent;
+}
+
+button {
+  background: $orange1;
+  @include linear_gradient(top, to bottom, $orange2, $orange1, $orange2);
+  height: $input-height;
+  font-weight: bold;
+  border: none;
+}
+
+button:hover {
+  background: $orange3;
+  @include linear_gradient(top, to bottom, $orange3, $orange2, $orange3);
+}
+
+@media only screen and (max-width: 500px) {
+  input {
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 250px) {
+  input {
+    width: 150px;
+  }
+}
