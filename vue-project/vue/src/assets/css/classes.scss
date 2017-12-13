@@ -1,0 +1,48 @@
+.container {
+  padding: 50px;
+  margin: auto;
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    padding: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.side-by-side {
+  display: inline-block;
+  width: 45%;
+  height: 100%;
+}
+
+.red {
+  color: $red;
+}
+
+.ml-3 {
+  margin-left: 3px;
+}
+
+.box {
+  border: 1px solid $grey1;
+  max-width: 100px;
+  max-height: 30px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: white;
+}
+
+.grey-bg {
+  background-color: $grey2;
+}
+
+.grey-text {
+  color: $grey1;
+}
+
+.icon {
+  margin-left: 15px;
+  vertical-align: middle;
+}

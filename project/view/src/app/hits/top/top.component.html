@@ -1,0 +1,20 @@
+<div class="container top-5">
+
+  <h1 class="red">TOP 5</h1>
+
+  <ul>
+    <li *ngFor="let url of top5; let i = index">
+
+      <div class="side-by-side url">
+        <a href="{{ url.shortUrl }}">{{ url.shortUrl }}</a>
+      </div>
+
+      <div class="side-by-side hits grey-text">
+        {{ url.hits }}
+      </div>
+
+      <hr>
+    </li>
+  </ul>
+
+</div>
