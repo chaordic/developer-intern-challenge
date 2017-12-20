@@ -1,0 +1,13 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "matheus",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.7",
+    "angular-clipboard": "^1.6.2",
+    "angular-route": "^1.6.7"
+  }
+}

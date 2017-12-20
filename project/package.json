@@ -1,0 +1,20 @@
+{
+  "name": "project",
+  "version": "0.0.1",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "node-uuid": "^1.4.8",
+    "path": "^0.12.7",
+    "pg": "6.4.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "4.0.0",
+    "superagent": "^3.8.2"
+  },
+  "scripts": {
+    "postinstall": "cd express/public/frontend && npm install"
+  }
+}

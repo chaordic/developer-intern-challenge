@@ -1,0 +1,16 @@
+{
+  "server": {
+    "port": 8080
+  },
+  "db": {
+    "populateDB": true,
+    "user": "postgres",
+    "password": "123456",
+    "port": 5432,
+    "schema": "url-shortener",
+    "host": "localhost"
+  },
+  "url": {
+    "mainURL": "http://localhost"
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CHAORDIC |Encurte seus links</title>
+
+    <meta property="og:title" content="CHAORDIC | Encurte seus links" />
+    <meta property="og:description" content="Encurte seus links facilmente" />
+    <meta property="og:url" content="https://www.chaordic.com.br/" />
+    <meta property="og:image" content="images/logo-seo.png" />
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+</head>
+<body ng-app="myApp" ng-controller="urlController">
+
+<script type="text/javascript" src="node_modules/angular/angular.js"></script>
+<script type="text/javascript" src="node_modules/angular-route/angular-route.js"></script>
+<script type="text/javascript" src="node_modules/angular-clipboard/angular-clipboard.js"></script>
+<script type="text/javascript" src="controllers/urlController.js"></script>
+
+
+
+<header class="top" id="top">
+    <h1 class="hide">Cabeçalho com a logo Chaordic</h1>
+    <a href="./"><img src="images/logo-chaordic.png" alt="Logomarca Chaordic"></a>
+</header>
+
+<article class="main" style="background-image:url('images/background-home.jpg');">
+    <div class="content">
+        <h1 class="title">Encurte seus links.</h1>
+        <p>Links são longos. Encurte os links que você deseja compartilhar, e acompanhe enquanto viajam através da internet.</p>
+        <form action="" id="form">
+            <input id="input" type="text" ng-model="url" placeholder="Cole o seu link aqui">
+            <button ng-show="shorten" id="btnShorten" class="btn-shorten" ng-click="shortenUrl(url)">Encurtar</button>
+            <button ng-show="copy" clipboard supported="supported" text="url" id="btnCopy" class="btn-shorten" on-copied="success()" ng-click="copyUrl(url)">Copiar</button>
+            <span ng-show="close" id="clean" ng-click="clearUrl()">x</span>
+        </form>
+        <div id="message" class="message">
+            <p>{{msg}}</p>
+        </div>
+    </div>
+</article>
+
+<article class="top-five" ng-init="getTopFive()">
+    <div class="content">
+        <h1 class="title">Top 5</h1>
+        <div class="top-list" id="topList">
+            <div ng-repeat="t in topFive" class="group-item"><a href="{{t.short_url}}" target="_blank">{{t.short_url}}</a><span>{{t.hits}}</span></div>
+        </div>
+    </div>
+</article>
+
+<article class="hits" ng-init="getTotalHits()">
+    <div class="content">
+        <h1 class="title">Hits</h1>
+        <div id="count" class="count">{{totalHits}}</div>
+        <span>Cliques em links</span>
+    </div>
+</article>
+
+<footer class="footer">
+    <div class="content">
+        <h1 class="hide">Rodapé com a assinatura chr.dc e links para redes sociais</h1>
+        <a href="https://www.chaordic.com.br/" target="_blank">chr.dc</a>
+        <div class="social-icons">
+            <a href="https://twitter.com/chaordic" target="_blank"><img src="images/icon-twitter.png" alt="Logo Twitter"></a>
+            <a href="https://www.facebook.com/chaordic.com.br/" target="_blank"><img src="images/icon-facebook.png" alt="Logo Facebook"></a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
