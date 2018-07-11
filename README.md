@@ -19,8 +19,8 @@ Todas informações devem ser salvas em um banco de dados.
 
 ### Pré-requisitos
 
-- O _front-end_ deverá ser desenvolvido utilizando um dos seguintes _frameworks_: Vue.js (preferencialmente), AngularJS ou React;
-- O _back-end_ deverá ser desenvolvido utilizando PHP (preferencialmente) ou Node.js.
+- O _front-end_ deverá ser desenvolvido utilizando o _framework_ React;
+- O _back-end_ deverá ser desenvolvido utilizando o _framework_ Node.js.
 
 ### Layout
 
