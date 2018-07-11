@@ -40,7 +40,7 @@ Todas informações devem ser salvas em um banco de dados.
 - Boa documentação (como rodar o projeto, como foi organizado...);
 - Uso de pré-processadores CSS ([Sass](http://sass-lang.com), [Less](http://lesscss.org), [Stylus](http://stylus-lang.com));
 - Adaptar a página para dispositivos móveis (torná-la responsiva);
-- Utilizar alguma automatização ([Grunt](http://gruntjs.com), [Gulp](http://gulpjs.com), [NPM Scripts](https://docs.npmjs.com/misc/scripts)), [webpack](https://webpack.js.org/);
+- Utilizar alguma automatização ([Grunt](http://gruntjs.com), [Gulp](http://gulpjs.com), [NPM Scripts](https://docs.npmjs.com/misc/scripts), [webpack](https://webpack.js.org/));
 - Criar [essa interação](./Layout/Shortener-interaction.gif) ao submeter um novo link;
 - Consumir esse [JSON](./Assets/urls.json) no _back-end_ para a seção **TOP 5** como o estado inicial da aplicação;
 
