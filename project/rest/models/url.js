@@ -1,6 +1,7 @@
 // Dependencies
-var sequelize = require('sequelize');
-
+var sequelize = require('sequelize'),
+    http = require('http');
+    
 // Database connection
 var con = new sequelize('null','null', 'null', {
     dialect: 'sqlite',
@@ -24,10 +25,17 @@ var Url = con.define( 'url', {
         unique: true,
         allowNull: false,
         validate: {
-            validateURL: function(value) {
-                if (/https?:\/\//.test(value)) {
+            validateUrlFormat: function(value) {
+                if(/https?:\/\//.test(value))
                     throw new Error('Remove http:// or https:// protocol from url')
-                }
+            },
+            validateUrlQuality: function(value) {
+                options = {method: 'HEAD', host: value, port: 80, path: '/'},
+                req = http.request(options, function(r) {
+                    if(r.statusCode >= 200 && r.statusCode <= 400)
+                        throw new Error('Invalid link, check if ' + value + ' exists')
+                });
+                req.end();
             }
         }
     },

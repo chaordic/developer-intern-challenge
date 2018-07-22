@@ -1,7 +1,8 @@
 // Dependencies
-var express = require('express');
-var router = express.Router();
-var shortid = require('shortid');
+var express = require('express'),
+    router  = express.Router(),
+    shortid = require('shortid');
+
 const Op = require('sequelize').Op;
 
 // Model
