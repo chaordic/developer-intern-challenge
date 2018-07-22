@@ -1,21 +1,45 @@
 // Dependencies
-var sqlite3 = require('sqlite3').verbose();
+var sequelize = require('sequelize');
 
-// Create a relational database of SQlite type.
-var db = new sqlite3.Database(':memory:', (err)=>{
-    if(err)
-        return console.error(err.message);
-    console.log('Conected to in-memory SQlite database')
+// Database connection
+var con = new sequelize('null','null', 'null', {
+    dialect: 'sqlite',
+    storage: './data/data.db'
 });
 
-// Create url table if not exists. 
-db.serialize(function() {
-    db.run("CREATE TABLE IF NOT EXISTS url (id TEXT, hits INTEGER, url TEXT, shortUrl VARCHAR(255))");
-});
+// Definitions of URL Model
+var Url = con.define( 'url', {
+    id: {
+        type: sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    hits: {
+        type: sequelize.INTEGER,
+        defaltValue: 0,
+        allowNull: false
+    },
+    url: {
+        type: sequelize.STRING,
+        unique: true,
+        allowNull: false,
+        validate: {
+            validateURL: function(value) {
+                if (/https?:\/\//.test(value)) {
+                    throw new Error('Remove http:// or https:// protocol from url')
+                }
+            }
+        }
+    },
+    shortUrl: {
+        type: sequelize.STRING,
+        unique: true,
+        allowNull: false
+    }
+}, { timestamps: false });
 
-// Close database connection.
-db.close((err)=>{
-    if(err)
-        return console.error(err.message)
-    console.log('Close the database connection.')
-});
+// Do the magic
+con.sync();
+
+// Export Url model
+module.exports = Url;
