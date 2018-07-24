@@ -28,14 +28,6 @@ var Url = con.define( 'url', {
             validateUrlFormat: function(value) {
                 if(/https?:\/\//.test(value))
                     throw new Error('Remove http:// or https:// protocol from url')
-            },
-            validateUrlQuality: function(value) {
-                options = {method: 'HEAD', host: value, port: 80, path: '/'},
-                req = http.request(options, function(r) {
-                    if(r.statusCode >= 200 && r.statusCode <= 400)
-                        throw new Error('Invalid link, check if ' + value + ' exists')
-                });
-                req.end();
             }
         }
     },

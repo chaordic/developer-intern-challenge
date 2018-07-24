@@ -1,7 +1,8 @@
 // Dependencies
 var express = require('express'),
     router  = express.Router(),
-    shortid = require('shortid');
+    shortid = require('shortid'),
+    http    = require("http");
 
 const Op = require('sequelize').Op;
 
@@ -17,17 +18,21 @@ router
        })
     })
     .post(function(req, res){
-        Url.create({
-            url: req.body.url,
-            hits: 0,
-            shortUrl: "http://chr.dc/" + shortid.generate()
-        }).then(url=>{
-            res.status(200).json({shortUrl: url.shortUrl})
-        }).catch(err=>{
-            res.status(405).json({
-                error: err.errors[0].message
-            })
-        })
+        options = {method: 'HEAD', host: 'http://'+req.body.url, port: 80, path: '/'},
+        http.request(options, function(r) {
+            if(r.statusCode >= 200 && r.statusCode <= 400)
+                Url.create({
+                    url: req.body.url,
+                    hits: 0,
+                    shortUrl: "http://chr.dc/" + shortid.generate()
+                }).then(url=>{
+                    res.status(200).json({shortUrl: url.shortUrl})
+                }).catch(err=>{
+                    res.status(405).json({
+                        error: err.errors[0].message
+                    })
+                })
+            res.status(405).json({error: 'Invalid link, check if ' + req.body.url + ' exists'})
     });
 
 // GET && DELETE HTTP methods for shortLink
