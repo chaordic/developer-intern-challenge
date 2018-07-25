@@ -31,7 +31,7 @@ router
                 })
             })
         }).on('error', (err)=>{
-            res.status(405).json({error: 'The link '+req.body.url+'is not working! Try other URL'})
+            res.status(405).json({error: 'The link '+req.body.url+' is not working! Try other URL'})
         })
         request.end();
     });
@@ -41,9 +41,14 @@ router
     .route('/:shortCode')
     .get(function(req, res){
         Url.findOne({ where: {shortUrl: { [Op.like]: '%' + req.params.shortCode } } }).then(url => {
-            if(url)
-                res.status(200).json({url: url.url})
-            res.status(404).json({error: 'Not found'})    
+            return url.update({
+                'hits': url.hits + 1
+            })
+        }).catch(()=>{
+            res.status(404).json({error: 'Not found!'})
+        }).then((user)=>{
+            user.reload();
+            res.status(200).json(user)
         }).catch(err=>{
             res.status(405).json({error: err.errors[0].message})
         })
