@@ -18,21 +18,22 @@ router
        })
     })
     .post(function(req, res){
-        options = {method: 'HEAD', host: 'http://'+req.body.url, port: 80, path: '/'},
-        http.request(options, function(r) {
-            if(r.statusCode >= 200 && r.statusCode <= 400)
-                Url.create({
-                    url: req.body.url,
-                    hits: 0,
-                    shortUrl: "http://chr.dc/" + shortid.generate()
-                }).then(url=>{
-                    res.status(200).json({shortUrl: url.shortUrl})
-                }).catch(err=>{
-                    res.status(405).json({
-                        error: err.errors[0].message
-                    })
+        request = http.request('http://'+req.body.url, () => {
+            Url.create({
+                url: req.body.url,
+                hits: 0,
+                shortUrl: "http://chr.dc/" + shortid.generate()
+            }).then(url=>{
+                res.status(200).json({shortUrl: url.shortUrl})
+            }).catch(err=>{
+                res.status(405).json({
+                    error: err.errors[0].message
                 })
-            res.status(405).json({error: 'Invalid link, check if ' + req.body.url + ' exists'})
+            })
+        }).on('error', (err)=>{
+            res.status(405).json({error: 'The link '+req.body.url+'is not working! Try other URL'})
+        })
+        request.end();
     });
 
 // GET && DELETE HTTP methods for shortLink
