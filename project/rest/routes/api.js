@@ -30,8 +30,8 @@ router
                     error: err.errors[0].message
                 })
             })
-        }).on('error', (err)=>{
-            res.status(405).json({error: 'The link '+req.body.url+' is not working! Try other URL'})
+        }).on('error', ()=>{
+            res.status(405).json({error: 'The link ' + req.body.url + ' is not working! Try other URL'})
         })
         request.end();
     });
@@ -46,9 +46,9 @@ router
             })
         }).catch(()=>{
             res.status(404).json({error: 'Not found!'})
-        }).then((user)=>{
-            user.reload();
-            res.status(200).json(user)
+        }).then((url)=>{
+            url.reload();
+            res.status(200).json({url: url.url})
         }).catch(err=>{
             res.status(405).json({error: err.errors[0].message})
         })
