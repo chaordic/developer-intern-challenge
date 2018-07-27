@@ -1,2 +1,59 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab');
 @import 'node_modules/materialize-css/sass/materialize';
+
+* {
+    font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Roboto Slab', 'Arial', sans-serif;
+}
+
+.red-chaordic {
+    color: #AA1423!important;
+}
+
+a.red-chaordic {
+    font-weight: bold;
+}
+
+h2.red-chaordic {
+    text-transform: uppercase;
+}
+
+.whiteTriangle {
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        margin-left: -50px;
+        width: 100px;
+        height: 100px;
+        background-color: #FFF;
+        transform: rotate(45deg);
+    }
+}
+
+.row {
+    margin-bottom: 0!important;
+
+    /* label focus color */
+    .input-field input + label {
+        color: orangered !important;
+    }
+
+    /* label underline focus color */
+    .input-field input {
+        border-bottom: 2px solid orangered !important;
+        box-shadow: 0 1px 0 0 orangered !important;
+        color: white!important;
+    }
+
+    table {
+        color: #777;
+        font-size: 16px;
+    }
+    
+}

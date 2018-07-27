@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
-import LogoHeader from './components/LogoHeader';
+import Splash from './components/Splash';
+import Header from './components/Header';
+import TopFive from './components/TopFive';
+import Hits from './components/Hits';
+import Footer from './components/Footer';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App container-fluid">
-        <LogoHeader></LogoHeader>
+        <Header></Header>
+        <Splash></Splash>
+        <TopFive></TopFive>
+        <Hits></Hits>
+        <Footer></Footer>
       </div>
     );
   }
