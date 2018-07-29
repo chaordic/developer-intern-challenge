@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Splash from './components/Splash';
 import Header from './components/Header';
-import TopFive from './components/TopFive';
+import TopFive from './components/topFive/TopFive';
 import Hits from './components/Hits';
 import Footer from './components/Footer';
 import './App.css';
