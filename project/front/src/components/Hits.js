@@ -8,6 +8,21 @@ const divStyle = {
 
 class Hits extends React.Component {
 
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: null,
+        };
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:8080/hits')
+            .then(response => response.json())
+            .then(data => this.setState({ hits: data.hits }));
+    }
+
     render() {
         return (
             <div
@@ -26,7 +41,7 @@ class Hits extends React.Component {
                                 borderRadius: '5px',
                                 border: '1px solid #C9C9C9'
                                 }}>
-                            35.713.571
+                            {this.state.hits}
                         </h3>
                         <p style={{color:'#777', fontSize: '15px'}}>Cliques em links</p>
                     </div>

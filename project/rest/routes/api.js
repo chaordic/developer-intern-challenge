@@ -15,7 +15,7 @@ var Url = require('../models/url');
 router
     .route('/')
     .get((req, res)=>{
-       Url.findAll({order: [['hits', 'DESC']], limit: 5})
+       Url.findAll({attributes: ['shortUrl', 'hits'], order: [['hits', 'DESC']], limit: 5})
        .then(urls=>{
            res.status(200).json(urls)
        })
@@ -46,7 +46,7 @@ router
         Url.findAll({
             attributes: [[Fn('SUM', Col('hits')), 'hits']]
         }).then(hits=>{
-            res.status(200).json(hits)
+            res.status(200).json({hits: hits[0].hits})
         }).catch(err=>{
             res.status(500).json({error: 'Query error!', err})
         })

@@ -1,7 +1,24 @@
 import React from 'react';
 import '../App.css';
 
+function mapObject(object, callback) {
+    return Object.keys(object).map(function (key) {
+        return callback(key, object[key]);
+    });
+}
+
 class TopFive extends React.Component {
+
+    componentDidMount() {
+        fetch('http://localhost:8080/')
+            .then(response => response.json())
+            .then(urls => {
+                this.setState({ urls: urls });
+                for (let url of urls) {
+                    console.log(url); // Will display contents of the object inside the array
+                }
+            });
+    }
 
     render() {
         return (
@@ -16,6 +33,21 @@ class TopFive extends React.Component {
                             </h2>
                             <table>
                                 <tbody>
+                                    {mapObject(this.state.urls, function (key, value) {
+                                        return (
+                                            <tr>
+                                                <td>
+                                                    <a  href="#"
+                                                        className="red-chaordic">
+                                                        http://chr.dc/xyzxyz
+                                                    </a>
+                                                </td>
+                                                <td className="right-align">
+                                                    Eclair
+                                                </td>
+                                            </tr>
+                                        )
+                                    })}
                                     <tr>
                                         <td>
                                             <a  href="#"
