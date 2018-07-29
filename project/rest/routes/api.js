@@ -2,8 +2,9 @@
 var express = require('express'),
     router  = express.Router(),
     shortid = require('shortid'),
-    http    = require("http");
+    http    = require('http');
 
+// Sequelize datatypes
 const Op = require('sequelize').Op;
 const Fn = require('sequelize').fn;
 const Col = require('sequelize').col;
@@ -21,22 +22,36 @@ router
        })
     })
     .post((req, res)=>{
-        request = http.request('http://'+req.body.url, () => {
-            Url.create({
-                url: req.body.url,
-                hits: 0,
-                shortUrl: "http://chr.dc/" + shortid.generate()
-            }).then(url=>{
-                res.status(200).json({shortUrl: url.shortUrl})
-            }).catch(err=>{
-                res.status(405).json({
-                    error: err.errors[0].message
-                })
+        // Invalidate if url has http or https
+        if(req.body.url == "") {
+            res.status(405).json({
+                error: 'Can\'t be null'
             })
-        }).on('error', ()=>{
-            res.status(405).json({error: 'The link ' + req.body.url + ' is not working! Try other URL'})
-        })
-        request.end();
+        }
+        else if (/https?:\/\//.test(req.body.url)) {    
+            res.status(405).json({
+                error: 'Remove http:// or https:// protocol from url'
+            })
+        }
+        else {
+            request = http.request('http://'+req.body.url, () => {
+                Url.create({
+                    url: req.body.url,
+                    hits: 0,
+                    shortUrl: "http://chr.dc/" + shortid.generate()
+                }).then(url=>{
+                    res.status(200).json({shortUrl: url.shortUrl})
+                }).catch(err=>{
+                    res.status(405).json({
+                        error: err.errors[0].message
+                    })
+                })
+            }
+            ).on('error', ()=>{
+                res.status(405).json({error: 'The link ' + req.body.url + ' is not working! Try other URL'})
+            })
+            request.end();
+        }
     });
 
 // GET Method for return hits count

@@ -21,12 +21,14 @@ export default function Footer() {
           </div>
           <div className="col s6 right right-align">
             <a  href="https://twitter.com/chaordic"
-                target="_blank">
+                target="_blank"
+                rel="noopener noreferrer">
               <img  src={Twitter}
                     alt="Chaordic no Twitter"/>
             </a>
             <a  href="https://facebook.com/chaordic.com.br/"
                 target="_blank"
+                rel="noopener noreferrer"
                 style={{marginLeft: '25px'}}>
               <img  src={Facebook}
                     alt="Chaordic no Facebook"/>

@@ -17,16 +17,13 @@ class TopFive extends React.Component {
             .then(response => response.json())
             .then(urls => {
                 this.setState({ urls: urls });
-                for (let url of urls) {
-                    console.log(url); // Will display contents of the object inside the array
-                }
             });
     }
 
     render() {
         return (
             <div className="row"
-                 style={{padding: '10vh 0'}}>
+                 style={{padding: '10vh 0 12vh'}}>
                 <div className="container center-align">
                     <div className="row">
                         <div className="col s12 m2 l2"></div>

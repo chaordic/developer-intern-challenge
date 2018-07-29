@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 .materialize-red {
   background-color: #e51c23 !important; }
 
@@ -6538,6 +6539,26 @@ h1, h2, h3, h4 {
 
 .red-chaordic {
   color: #AA1423 !important; }
+
+span#closeShortUrl {
+  cursor: pointer;
+  position: absolute;
+  right: 100px;
+  top: 8px; }
+  span#closeShortUrl i {
+    font-size: 28px; }
+
+.fade-component {
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden; }
+
+.fade-component.show {
+  opacity: 1;
+  visibility: visible; }
 
 a.red-chaordic {
   font-weight: bold; }

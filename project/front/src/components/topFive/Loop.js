@@ -5,7 +5,9 @@ export default function Loop(props) {
   return (
     <tr>
         <td>
-            <a  href="#"
+            <a  href={props.shortUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="red-chaordic">
                 {props.shortUrl}
             </a>
