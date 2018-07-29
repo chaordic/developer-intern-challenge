@@ -5,6 +5,8 @@ var express = require('express'),
     http    = require("http");
 
 const Op = require('sequelize').Op;
+const Fn = require('sequelize').fn;
+const Col = require('sequelize').col;
 
 // Model
 var Url = require('../models/url');
@@ -12,12 +14,13 @@ var Url = require('../models/url');
 // GET && POST HTTP methods for root
 router
     .route('/')
-    .get(function(req, res){
-       Url.findAll().then(urls=>{
+    .get((req, res)=>{
+       Url.findAll({order: [['hits', 'DESC']], limit: 5})
+       .then(urls=>{
            res.status(200).json(urls)
        })
     })
-    .post(function(req, res){
+    .post((req, res)=>{
         request = http.request('http://'+req.body.url, () => {
             Url.create({
                 url: req.body.url,
@@ -36,11 +39,25 @@ router
         request.end();
     });
 
+// GET Method for return hits count
+router
+    .route('/hits')
+    .get((req, res)=>{
+        Url.findAll({
+            attributes: [[Fn('SUM', Col('hits')), 'hits']]
+        }).then(hits=>{
+            res.status(200).json(hits)
+        }).catch(err=>{
+            res.status(500).json({error: 'Query error!', err})
+        })
+    })
+
 // GET && DELETE HTTP methods for shortLink
 router
     .route('/:shortCode')
-    .get(function(req, res){
-        Url.findOne({ where: {shortUrl: { [Op.like]: '%' + req.params.shortCode } } }).then(url => {
+    .get((req, res)=>{
+        Url.findOne({ where: {shortUrl: { [Op.like]: '%' + req.params.shortCode } } })
+        .then(url => {
             return url.update({
                 'hits': url.hits + 1
             })
@@ -53,7 +70,7 @@ router
             res.status(405).json({error: err.errors[0].message})
         })
     })
-    .delete(function(req, res){
+    .delete((req, res)=>{
         Url.destroy({ where: {shortUrl: { [Op.like]: '%' + req.params.shortCode } } }).then(url => {
             if(url)
                 res.status(200).json({success: 'The shortlink http://chr.dc/' + req.params.shortCode + ' has successfully deleted'})

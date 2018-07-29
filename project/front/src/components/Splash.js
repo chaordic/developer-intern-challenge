@@ -19,8 +19,7 @@ class Splash extends React.Component {
                         <div className="col s12 m8 l8 white-text">
                             <h2 style={{fontWeight: 'bold'}}>Encurte seus links.</h2>
                             <p style={{marginBottom: '50px'}}>
-                                Links são longos. Encurte os links que você deseja compartilhar, <br className="hide-on-med-and-up" />
-                                e acompanhe enquanto viajam através da internet.
+                                Links são longos. Encurte os links que você deseja compartilhar, e acompanhe enquanto viajam através da internet.
                             </p>
                             <div className="row">
                                 <div className="input-field">
@@ -28,7 +27,7 @@ class Splash extends React.Component {
                                     <label for="url_link">Cole seu link aqui</label>
                                 </div>
                                 <div className="col s12 m3">
-                                    <a className="waves-effect waves-orange btn orange accent-4" href="http://www.google.com" style={{marginLeft: '5px'}}>Encurtar</a>
+                                    <a className="waves-effect waves-orange btn-large orange accent-4" href="http://www.google.com" style={{marginLeft: '5px'}}>Encurtar</a>
                                 </div>
                             </div>
                             </div>

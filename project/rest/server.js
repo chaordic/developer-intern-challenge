@@ -4,6 +4,11 @@ var bodyParser = require('body-parser');
 
 // Start express server instance
 var app = express();
+
+// Set port
+app.set('port', process.env.PORT || 8080);
+
+// Set Content-Type
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -11,5 +16,5 @@ app.use(bodyParser.json());
 app.use('/', require('./routes/api'));
 
 // Start server
-app.listen(3000);
-console.log('API is running on port 3000');
+app.listen(app.get('port'));
+console.log('API is running on port: '+app.get('port'));
