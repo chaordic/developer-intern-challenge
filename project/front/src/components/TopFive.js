@@ -1,6 +1,5 @@
 import React from 'react';
-import '../../App.css';
-import Loop from './Loop'
+import '../App.css';
 
 class TopFive extends React.Component {
 
@@ -34,7 +33,21 @@ class TopFive extends React.Component {
                             <table>
                                 <tbody>
                                     {this.state.urls.map(function(url){
-                                        return <Loop shortUrl={url.shortUrl} hits={url.hits} />;
+                                        return (
+                                            <tr>
+                                                <td>
+                                                    <a  href={url.shortUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="red-chaordic">
+                                                        {url.shortUrl}
+                                                    </a>
+                                                </td>
+                                                <td className="right-align">
+                                                    {url.hits}
+                                                </td>
+                                            </tr>
+                                        );
                                     })}
                                 </tbody>
                             </table>

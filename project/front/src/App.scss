@@ -15,10 +15,6 @@ h1, h2, h3, h4 {
     line-height: 47px;
 }
 
-.red-chaordic {
-    color: #AA1423!important;
-}
-
 span#closeShortUrl {
     cursor: pointer;
     position: absolute;
@@ -35,15 +31,19 @@ span#closeShortUrl {
     -o-transition: 0.5s;
     transition: 0.5s;
     opacity: 0;
-    visibility: hidden; 
-}
-.fade-component.show {
-    opacity: 1;
-    visibility: visible; 
+    visibility: hidden;
+    &.show {
+        opacity: 1;
+        visibility: visible; 
+    }
 }
 
 a.red-chaordic {
     font-weight: bold;
+}
+
+.red-chaordic {
+    color: #AA1423!important;
 }
 
 h2.red-chaordic {

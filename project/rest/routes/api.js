@@ -36,7 +36,7 @@ router
         else {
             request = http.request('http://'+req.body.url, () => {
                 Url.create({
-                    url: req.body.url,
+                    url: 'http://'+req.body.url,
                     hits: 0,
                     shortUrl: "http://chr.dc/" + shortid.generate()
                 }).then(url=>{

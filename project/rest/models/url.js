@@ -23,13 +23,7 @@ var Url = con.define( 'url', {
     url: {
         type: sequelize.STRING,
         unique: true,
-        allowNull: false,
-        validate: {
-            validateUrlFormat: function(value) {
-                if(/https?:\/\//.test(value))
-                    throw new Error('Remove http:// or https:// protocol from url')
-            }
-        }
+        allowNull: false
     },
     shortUrl: {
         type: sequelize.STRING,
@@ -39,7 +33,13 @@ var Url = con.define( 'url', {
 }, { timestamps: false });
 
 // Do the magic
-con.sync();
+con.sync().then(()=>{
+    // Create sample data
+    var mock = require('../data/urls.json');
+    mock.forEach(url => {
+        Url.create(url).then(url => console.log(url)).catch(err => {})
+    });
+});
 
 // Export Url model
 module.exports = Url;
