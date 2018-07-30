@@ -25,12 +25,12 @@ router
         // Invalidate if url has http or https
         if(req.body.url == "") {
             res.status(405).json({
-                error: 'Can\'t be null'
+                error: 'Não pode estar vázio'
             })
         }
         else if (/https?:\/\//.test(req.body.url)) {    
             res.status(405).json({
-                error: 'Remove http:// or https:// protocol from url'
+                error: 'Remova os protocolos http:// ou https:// da url'
             })
         }
         else {
@@ -48,7 +48,7 @@ router
                 })
             }
             ).on('error', ()=>{
-                res.status(405).json({error: 'The link ' + req.body.url + ' is not working! Try other URL'})
+                res.status(405).json({error: 'O link ' + req.body.url + ' parece não funcionar, tente outro!'})
             })
             request.end();
         }
@@ -63,7 +63,7 @@ router
         }).then(hits=>{
             res.status(200).json({hits: hits[0].hits})
         }).catch(err=>{
-            res.status(500).json({error: 'Query error!', err})
+            res.status(500).json({error: 'Erro na execução!', err})
         })
     })
 
@@ -77,7 +77,7 @@ router
                 'hits': url.hits + 1
             })
         }).catch(()=>{
-            res.status(404).json({error: 'Not found!'})
+            res.status(404).json({error: 'Não encontrado!'})
         }).then((url)=>{
             url.reload();
             res.status(200).json({url: url.url})
@@ -88,8 +88,8 @@ router
     .delete((req, res)=>{
         Url.destroy({ where: {shortUrl: { [Op.like]: '%' + req.params.shortCode } } }).then(url => {
             if(url)
-                res.status(200).json({success: 'The shortlink http://chr.dc/' + req.params.shortCode + ' has successfully deleted'})
-            res.status(404).json({error: 'Not found'})    
+                res.status(200).json({success: 'O link http://chr.dc/' + req.params.shortCode + ' foi deletado com sucesso'})
+            res.status(404).json({error: 'Não encontrado'})    
         }).catch(err=>{
             res.status(405).json({error: err.errors[0].message})
         })

@@ -37,7 +37,8 @@ con.sync().then(()=>{
     // Create sample data
     var mock = require('../data/urls.json');
     mock.forEach(url => {
-        Url.create(url).then(url => console.log(url)).catch(err => {})
+        url.id = parseInt(url.id)
+        Url.create(url).then(url => console.log(url)).catch(err => {console.log(err)})
     });
 });
 
