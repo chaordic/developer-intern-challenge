@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.top{
+    margin-top: 80px;
+    color: #AA1423;
+    font-size: 40px;
+    font-family: 'Roboto Slab', sans-serif;
+
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 200px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #EEE;
+}
+a{
+    color: #AA1423;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+#hits{
+    font-size: 30px;
+    opacity: 0.5;
+}
+* {
+    box-sizing: border-box;
+  }
+  .maintop{
+      
+  }
