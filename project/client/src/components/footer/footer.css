@@ -1,0 +1,17 @@
+.footer{
+   background: white;
+   height: 100px;
+}
+.social{
+    width: 70px;
+    float: right;
+    padding-left: 30px;
+}
+.site{
+    color: #AA1423;
+    font-size: 30px;
+    float: left;
+    padding-top: 20px;
+    padding-left: 120px;
+    font-weight: normal;
+}

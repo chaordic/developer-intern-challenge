@@ -1,0 +1,55 @@
+
+.home {
+    background-image: url('./background-home.jpg');
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+}
+.encurte {
+    font-family: 'Roboto Slab', sans-serif;
+    color: white;
+    font-size:50px;
+
+}
+p {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+.home-text {
+    margin-top : 100px;
+    margin-bottom: 120px;
+    font-family: 'Roboto Slab', sans-serif;
+}
+::placeholder {
+    color: rgb(255, 110, 21);
+    opacity: 1;
+}
+#url {
+    background-color: transparent; 
+    border-style: solid; 
+    border-width: 0px 0px 1px 0px; 
+    font-family: 'Roboto Slab', sans-serif;
+    width: 30%;
+    height: 60px;
+    border-color:  rgb(255, 110, 21);
+    font-size: 20px;
+    color: rgb(255, 110, 21);
+    
+}
+#encurtar{
+    height: 40px;
+    background-color: rgb(255, 110, 21);
+    border: 0px solid;
+    font-size: 20px;
+    padding: 0px;
+    color: white;
+    font-weight: bold;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.input {
+    margin-top: 50px;
+}
