@@ -1,6 +1,6 @@
 ## Alteração de Valores
 
-Para a alteração dos valores do Banco de Dados (usuário, host, senha, etc), vá até `Back.js`.
+Para a alteração dos valores do Banco de Dados (usuário, host, senha, etc), vá até `Back.js` e no diretório `rotas`, entrando em todos os arquivos presentes.
 
 Para a alteração da URL encurtada, vá até `Back.js`, e mude `url_shorter`.
 
