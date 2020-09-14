@@ -26,10 +26,6 @@ Após isso, vá até o diretório `paginas`, e dentro dele, abra `ShortenLinks`,
 
 Quando iniciar o projeto, um link será gerado automaticamente, e ele irá redirecionar ao site da Google.
 
-## Links com formatação em JSON
-
-Você acessar o `localhost:3030/links`, onde irá mostrar todos os 5 primeiros links com mais hits. Lá é mostrado o `id`, `hits`, `url`, `shortUrl` e `code`.
-
 ## Dependências utilizadas
 
 * Axios
