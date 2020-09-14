@@ -1,0 +1,186 @@
+html {
+  position: relative;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-weight: normal;
+  scroll-behavior: smooth;
+  font-family: 'Roboto', 'Roboto Slab', sans-serif;
+}
+
+/* Conteúdo */
+.Conteudo {
+  width: 100%;
+  float: left;
+  padding: 3% 4%;
+  text-align: center;
+}
+
+/* Body do Site */
+.Site {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+
+/* Logo */
+.Logo {
+  padding: 1.5% 4%;
+}
+
+/* Seção de encurtar links */
+.Encurtar_Links {
+  background: url('img/background-image.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 8% 4%;
+}
+
+.Encurtar_Funcao h1 {
+  color: #EEE;
+  font-size: 45px;
+  padding: 1.5% 0;
+  font-weight: bold;
+}
+
+.Encurtar_Funcao p {
+  color: #EEE;
+  font-size: 20px;
+}
+
+/* Formulário do Encurtador de Links */
+.Encurtar_Form {
+  padding: 3% 4%;
+}
+
+.Encurtar_Form_Conteudo input {
+  width: 35%;
+  padding: 0.5% 0;
+  background: none;
+  border-bottom: 2.5px solid orangered;
+}
+
+.Encurtar_Form_Conteudo input {
+  color: orange;
+  font-size: 20px;
+  padding-left: 2px;
+}
+
+.Encurtar_Form_Conteudo input::placeholder {
+  color: orange;
+  font-size: 20px;
+}
+
+.Encurtar_Form_Conteudo button {
+  padding: 1%;
+  font-size: 17.5px;
+  font-weight: bold;
+  color: #EEE;
+  background-color: orangered;
+  border-radius: 0;
+  margin-left: 1%;
+  cursor: pointer;
+}
+
+/* Top 5 links */
+.Top h1 {
+  width: 100%;
+  color: #AA1423;
+  font-size: 32.5px;
+  float: left;
+}
+
+.Top_Link {
+  padding: 1% 0;
+  border-bottom: 1px solid lightgray;
+  width: 45%;
+  margin: auto;
+  text-align: right;
+}
+
+.Top_Link:last-child {
+  border: none;
+}
+
+.Top_Link span {
+  font-size: 20px;
+  color: gray;
+}
+
+.Top_Link span:first-child {
+ text-align: left;
+ color: #AA1423;
+ float: left;
+}
+
+/* HITS */
+.Hits {
+  background-color: #EEE;
+  padding: 0 0 3.5% 0;
+}
+
+.Hits:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 0; 
+  height: 0; 
+
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-top: 40px solid white;
+}
+
+.Hits h1 {
+  padding: 1.5% 3%;
+  padding-bottom: 0;
+  color: #AA1423;
+}
+
+.Hits span {
+  color: gray;
+  font-size: 17.5px;
+}
+
+.Hits_Mostrar {
+  padding: 2% 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: .5%;
+}
+
+.Hits_Mostrar p {
+  border: 1px solid lightgray;
+  box-shadow: 0 0 1.5px gray;
+  border-radius: 5px;
+  background-color: white;
+  width: 18%;
+  font-size: 35px;
+  padding: .5% 0;
+  color: #AA1423;
+  margin: auto;
+}
+
+/* Rodapé */
+.Rodape_Nome {
+  color: #AA1423;
+  font-size: 25px;
+  float: left;
+  width: 50%;
+}
+
+.Rodape_Icones {
+  float: right;
+  width: 50%;
+}
+
+.Rodape_Icones img {
+  padding: 0 2%;
+}
