@@ -8,13 +8,13 @@ Para a alteração da URL encurtada, vá até `Back.js`, e mude `url_shorter`.
 
 No diretório 'project', você precisa digitar:
 
-### `npm install`
+`npm install`
 
-### `npm start`
+`npm start`
 
 Após isso, entre no diretório 'src', e execute o seguinte comando:
 
-### `node Back.js`
+`node Back.js`
 
 Para que assim, o back-end seja inicializado também.
 
