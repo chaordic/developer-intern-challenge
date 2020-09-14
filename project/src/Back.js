@@ -2,15 +2,13 @@ const http = require('http');
 const express = require('express');
 const mysql = require('mysql');
 
-const getShortenUrlRoute = require('./rotas/GetShortenUrl');
+const redirectUrlRoute = require('./rotas/RedirectUrl');
 const linksRoute = require('./rotas/Links');
 const hitsRoute = require('./rotas/Hits');
-const shortUrlRoute = require('./rotas/ShortUrl');
+const shortenUrlRoute = require('./rotas/ShortenUrl');
 
 const app = express();
 app.use(require("cors")());
-
-const url_shorter = 'http://localhost:3030/';
 
 const host = 'localhost';
 const port = '3306';
@@ -50,5 +48,5 @@ var server = http.createServer(app);
 server.listen(3030);
 console.log("Servidor escutando na porta 3030...")
 
-app.use("/v1/", getShortenUrlRoute);
-app.use("/", linksRoute, hitsRoute, shortUrlRoute);
+app.use("/v1/", redirectUrlRoute);
+app.use("/", linksRoute, hitsRoute, shortenUrlRoute);
